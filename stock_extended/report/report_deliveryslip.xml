@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <template id="report_delivery_document_inherit">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
@@ -8,30 +7,120 @@
                     <div class="header">
                         <div class="row">
                             <div class="col-12">
-                                <table style="width:100%;">
+                                <table class="table table-sm table-borderless" style="width:100%;">
                                     <tr>
-                                        <td style="text-align:center;">
-                                            <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:150px; height:150px;"/>                            
+                                        <td class="text-center">
+                                            <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                            
                                         </td>
-                                        <td style="text-align:center;">
-                                            <h1>Purchase Order</h1>
+                                        <td class="text-center">
+                                            <h3 style="margin-top:40px;">Purchase Order</h3>
                                         </td>
-                                        <td style="text-align:center;">
-                                            <h2>OUT09865445</h2>
+                                        <td class="text-center">
+                                            <h4 style="margin-top:40px;"><span t-field="o.name"/></h4>
                                         </td>
+                                    </tr>
+                                 </table>
+                            </div>
+                      </div> 
+                    </div>
+                    <div class="page">
+                        <div class="row mt32">
+                            <div class="col-sm-12">
+                                <table class="table table-sm table-borderless" style="width:100%;">
+                                    <tr>
+                                        <td>
+                                            Customer:
+                                        </td>
+                                        <td>
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <td>
+                                            Date
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <span t-field="o.scheduled_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Address:
+                                        </td>
+                                        <td>
+                                            <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+                                                <t t-if="partner" name="partner_header">
+                                                    <t t-set="address">
+                                                        <div t-esc="partner" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True}"/>
+                                                    </t>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            Origin:
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <span t-field="o.origin"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Phone:
+                                        </td>
+                                        <td>
+                                            <span t-field="o.partner_id.phone"/>
+                                        </td>
+                                        <td>
+                                            Asesor:
+                                        </td>
+                                        <td style="text-align:left;">
+                                            <span t-field="o.user_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CI or VAT:</td>
+                                        <td><span t-field="o.partner_id.vat"/></td>
+                                        <td>
+                                            Ciudad:
+                                        </td>
+                                        <td style="text-align:left;">Santa Elena de Guairenketenke</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="page">
-                        <div class="row" style="top:-50px; height:500px; border:1px dashed green;">
-                            page
+                        <div class="row mt32">
+                            <div class="col-sm-12">
+                                <table class="table table-sm" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.move_ids_without_package" t-as="move" style="page-break-inside: avoid;">
+                                            <td>
+                                                <span t-esc="move.product_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="move.product_uom_qty"/>
+                                            </td>
+                                            <td>
+                                                <span>108988</span>
+                                            </td>
+                                            <td>
+                                                <span t-esc="move.quantity_done"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="footer">
                         <div class="row">
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            <div class="col-ms-12">
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </div>
                         </div>
                     </div>
                 </t>
@@ -58,12 +147,12 @@
     <field name="page_height">297</field>
     <field name="page_width">210</field>
     <field name="orientation">Portrait</field>
-    <field name="margin_top">50</field>
+    <field name="margin_top">35</field>
     <field name="margin_bottom">28</field>
     <field name="margin_left">7</field>
     <field name="margin_right">7</field>
-    <field name="header_line" eval="False"/>
-    <field name="header_spacing">5</field>
+    <field name="header_line" eval="True"/>
+    <field name="header_spacing">30</field>
     <field name="dpi">90</field>
 </record>
 
