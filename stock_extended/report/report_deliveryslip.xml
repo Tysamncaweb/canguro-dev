@@ -26,61 +26,58 @@
                     <div class="page">
                         <div class="row mt32">
                             <div class="col-sm-12">
-                                <table class="table table-sm table-borderless" style="width:100%;">
+                                <table class="table table-sm table-borderless">
                                     <tr>
                                         <td>
-                                            Customer:
+                                            <strong>Customer:</strong>
                                         </td>
                                         <td>
                                             <span t-field="o.partner_id"/>
                                         </td>
                                         <td>
-                                            Date
+                                            <strong>Date:</strong>
                                         </td>
-                                        <td style="text-align:left;">
+                                        <td>
                                             <span t-field="o.scheduled_date"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Address:
+                                            <strong>Address:</strong>
+                                        </td>
+                                        <td style="font-size:10pt;">
+                                            <span t-field="o.partner_id"
+                                            t-options='{"widget": "contact", "fields": ["address"], "no_maker": true}'
+                                            />
                                         </td>
                                         <td>
-                                            <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
-                                                <t t-if="partner" name="partner_header">
-                                                    <t t-set="address">
-                                                        <div t-esc="partner" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True}"/>
-                                                    </t>
-                                            </t>
+                                            <strong>Origin:</strong>
                                         </td>
                                         <td>
-                                            Origin:
-                                        </td>
-                                        <td style="text-align:left;">
                                             <span t-field="o.origin"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Phone:
+                                            <strong>Phone:</strong>
                                         </td>
                                         <td>
                                             <span t-field="o.partner_id.phone"/>
                                         </td>
                                         <td>
-                                            Adviser:
+                                            <strong>Adviser:</strong>
                                         </td>
                                         <td style="text-align:left;">
                                             <span t-field="o.user_id"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>CI or VAT:</td>
+                                        <td><strong>CI or VAT:</strong></td>
                                         <td><span t-field="o.partner_id.vat"/></td>
                                         <td>
-                                            City:
+                                            <strong>City:</strong>
                                         </td>
-                                        <td style="text-align:left;">Santa Elena de Guairenketenke</td>
+                                        <td style="text-align:left;"><span t-field="o.partner_id.city"/></td>
                                     </tr>
                                 </table>
                             </div>
@@ -119,11 +116,11 @@
                     <div class="footer">
                         <div class="row" style="border-top:1px solid black;">
                             <div class="col-ms-12">
-                                <strong>Method of payment:</strong>
+                                <strong>Method of payment:  </strong>
                                 <br/>
-                                <strong>Dispatched by:</strong><span t-field="o.user_id.name"/>
+                                <strong>Dispatched by:  </strong><span t-field="o.user_id.name"/>
                                 <br/>
-                                <strong>Observation:</strong><span t-field="o.note"/>
+                                <strong>Observation:  </strong><span t-field="o.note"/>
                             </div>
                         </div>
                     </div>
