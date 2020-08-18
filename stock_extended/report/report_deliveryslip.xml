@@ -29,13 +29,13 @@
                                 <table class="table table-sm table-borderless">
                                     <tr>
                                         <td>
-                                            <strong>Customer:</strong>
+                                            <b>Customer:</b>
                                         </td>
                                         <td>
                                             <span t-field="o.partner_id"/>
                                         </td>
                                         <td>
-                                            <strong>Date:</strong>
+                                           <b>Date:</b>
                                         </td>
                                         <td>
                                             <span t-field="o.scheduled_date"/>
@@ -43,7 +43,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>Address:</strong>
+                                           <b>Address:</b>
                                         </td>
                                         <td style="font-size:10pt;">
                                             <span t-field="o.partner_id"
@@ -51,7 +51,7 @@
                                             />
                                         </td>
                                         <td>
-                                            <strong>Origin:</strong>
+                                           <b>Origin:</b>
                                         </td>
                                         <td>
                                             <span t-field="o.origin"/>
@@ -59,23 +59,23 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <strong>Phone:</strong>
+                                           <b>Phone:</b>
                                         </td>
                                         <td>
                                             <span t-field="o.partner_id.phone"/>
                                         </td>
                                         <td>
-                                            <strong>Adviser:</strong>
+                                           <b>Adviser:</b>
                                         </td>
                                         <td style="text-align:left;">
                                             <span t-field="o.user_id"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>CI or VAT:</strong></td>
+                                        <td><b>CI or VAT:</b></td>
                                         <td><span t-field="o.partner_id.vat"/></td>
                                         <td>
-                                            <strong>City:</strong>
+                                            <b>City:</b>
                                         </td>
                                         <td style="text-align:left;"><span t-field="o.partner_id.city"/></td>
                                     </tr>
@@ -114,15 +114,11 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <div class="row" style="border-top:1px solid black;">
-                            <div class="col-ms-12">
-                                <strong>Method of payment:  </strong>
-                                <br/>
-                                <strong>Dispatched by:  </strong><span t-field="o.user_id.name"/>
-                                <br/>
-                                <strong>Observation:  </strong><span t-field="o.note"/>
-                            </div>
-                        </div>
+                        <table style="width:100%;font-size:12pt;">
+                            <tr><td><b>Method of payment:</b></td><td></td></tr>
+                            <tr><td><b>Dispatched by:</b></td><td><span t-field="o.user_id.name"/></td></tr>
+                            <tr><td><b>Observation:</b></td><td><span t-field="o.note"/></td></tr>
+                        </table>
                     </div>
                 </t>
             </t>    
