@@ -68,7 +68,7 @@
                                             <span t-field="o.partner_id.phone"/>
                                         </td>
                                         <td>
-                                            Asesor:
+                                            Adviser:
                                         </td>
                                         <td style="text-align:left;">
                                             <span t-field="o.user_id"/>
@@ -78,7 +78,7 @@
                                         <td>CI or VAT:</td>
                                         <td><span t-field="o.partner_id.vat"/></td>
                                         <td>
-                                            Ciudad:
+                                            City:
                                         </td>
                                         <td style="text-align:left;">Santa Elena de Guairenketenke</td>
                                     </tr>
@@ -105,7 +105,7 @@
                                                 <span t-esc="move.product_uom_qty"/>
                                             </td>
                                             <td>
-                                                <span>108988</span>
+                                                <span t-field="move.product_id.lst_price"></span>
                                             </td>
                                             <td>
                                                 <span t-esc="move.quantity_done"/>
@@ -117,9 +117,13 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <div class="row">
+                        <div class="row" style="border-top:1px solid black;">
                             <div class="col-ms-12">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                <strong>Method of payment:</strong>
+                                <br/>
+                                <strong>Dispatched by:</strong><span t-field="o.user_id.name"/>
+                                <br/>
+                                <strong>Observation:</strong><span t-field="o.note"/>
                             </div>
                         </div>
                     </div>
