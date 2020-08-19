@@ -28,55 +28,55 @@
                             <div class="col-sm-12">
                                 <table class="table table-sm table-borderless">
                                     <tr>
-                                        <td>
-                                            <b>Customer:</b>
-                                        </td>
+                                        <th>
+                                            Customer:
+                                        </th>
                                         <td>
                                             <span t-field="o.partner_id"/>
                                         </td>
-                                        <td>
-                                           <b>Date:</b>
-                                        </td>
+                                        <th>
+                                           Date:
+                                        </th>
                                         <td>
                                             <span t-field="o.scheduled_date"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                           <b>Address:</b>
-                                        </td>
+                                        <th>
+                                           Address:
+                                        </th>
                                         <td style="font-size:10pt;">
                                             <span t-field="o.partner_id"
                                             t-options='{"widget": "contact", "fields": ["address"], "no_maker": true}'
                                             />
                                         </td>
-                                        <td>
-                                           <b>Origin:</b>
-                                        </td>
+                                        <th>
+                                           Origin:
+                                        </th>
                                         <td>
                                             <span t-field="o.origin"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                           <b>Phone:</b>
-                                        </td>
+                                        <th>
+                                           Phone:
+                                        </th>
                                         <td>
                                             <span t-field="o.partner_id.phone"/>
                                         </td>
-                                        <td>
-                                           <b>Adviser:</b>
-                                        </td>
+                                        <th>
+                                           Adviser:
+                                        </th>
                                         <td style="text-align:left;">
                                             <span t-field="o.user_id"/>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><b>CI or VAT:</b></td>
+                                        <th>CI or VAT:</th>
                                         <td><span t-field="o.partner_id.vat"/></td>
-                                        <td>
-                                            <b>City:</b>
-                                        </td>
+                                        <th>
+                                            City:
+                                        </th>
                                         <td style="text-align:left;"><span t-field="o.partner_id.city"/></td>
                                     </tr>
                                 </table>
@@ -115,9 +115,9 @@
                     </div>
                     <div class="footer">
                         <table style="width:100%;font-size:12pt;">
-                            <tr><td><b>Method of payment:</b></td><td></td></tr>
-                            <tr><td><b>Dispatched by:</b></td><td><span t-field="o.user_id.name"/></td></tr>
-                            <tr><td><b>Observation:</b></td><td><span t-field="o.note"/></td></tr>
+                            <tr><th>Method of payment:</th><td></td></tr>
+                            <tr><th>Dispatched by:</th><td><span t-field="o.user_id.name"/></td></tr>
+                            <tr><th>Observation:</th><td><span t-field="o.note"/></td></tr>
                         </table>
                     </div>
                 </t>
