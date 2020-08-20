@@ -10,6 +10,7 @@
             ],
         'data': [
             'report/report_deliveryslip.xml',
+            'report/internal_transfer_report_view.xml',
             'views/stock_picking_views.xml',
             ],
         'installable': True,
