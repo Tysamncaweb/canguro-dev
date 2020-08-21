@@ -21,8 +21,11 @@ class StockPicking(models.Model):
 
     @api.constrains('note')
     def _note_limited(self):
-        if len(self.note) > 89:
-            raise ValidationError(_("Field note cannot be contain more than 89 characters.!"))
+        if self.note:
+            if len(self.note) > 89:
+                raise ValidationError(_("Field note cannot be contain more than 89 characters.!"))
+        else:
+            pass
 
 
 
