@@ -9,9 +9,11 @@
             'stock',
             ],
         'data': [
+            'security/ir.model.access.csv',
             'report/report_deliveryslip.xml',
             'report/internal_transfer_report_view.xml',
             'views/stock_picking_views.xml',
+            'views/shipping_report_views.xml',
             ],
         'installable': True,
 }

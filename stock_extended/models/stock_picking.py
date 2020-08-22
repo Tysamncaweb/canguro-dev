@@ -17,6 +17,8 @@ class StockPicking(models.Model):
     security_bag = fields.Boolean(string='Security Bag')
     insurance = fields.Boolean(string='Insurance')
     parcel_service = fields.Char(string='Parcel service')
+    date_from = fields.Date(string="Date from")
+    date_to = fields.Date(string="Date to")
 
 
     @api.constrains('note')
@@ -26,6 +28,18 @@ class StockPicking(models.Model):
                 raise ValidationError(_("Field note cannot be contain more than 89 characters.!"))
         else:
             pass
+
+
+
+class StockShippingReport(models.Model):
+    _name = "stock.shipping.report"
+
+
+    name = fields.Char(string="Name")
+    date_from = fields.Date(string="Date from")
+    date_to = fields.Date(string="Date to")
+    report = fields.Binary(string="Shipping Report")
+
 
 
 
