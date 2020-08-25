@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import base64
 
 from odoo import api, fields, models, _ 
 from odoo.exceptions import ValidationError 
@@ -39,6 +40,15 @@ class StockShippingReport(models.Model):
     date_from = fields.Date(string="Date from")
     date_to = fields.Date(string="Date to")
     report = fields.Binary(string="Shipping Report")
+    ir_attachment = fields.Many2one('ir.attachment', string="Attached")
+    binary_name = fields.Char(string="File name")
+
+    @api.onchange('binary_name')
+    def _put_name(self):
+        if self.binary_name:
+            self.name = self.binary_name
+        else:
+            self.name = "/"
 
 
 

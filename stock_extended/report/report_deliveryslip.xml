@@ -105,7 +105,7 @@
                                                 <span t-field="move.product_id.lst_price"></span>
                                             </td>
                                             <td>
-                                                <span t-esc="move.quantity_done"/>
+                                                <span t-esc="word"/>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -6,14 +6,17 @@
         <field name="arch" type="xml">
             <form string="Shipping Report">
                 <header>
-                    <button string="" name="action_name" type="object" class="oe_highlight"/>>
+                    <button string="Print Report" name="%(action_shipping_report)d" type="action" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <group col="4">
+                        <field name="binary_name" invisible="1"/>
                         <field name="name"/>
                         <field name="date_from"/>
                         <field name="date_to"/>
-                        <field name="report" filename="name"/>
+                        <!-- <field name="report" filename="binary_name"/> -->
+                        <field name="report"/> 
+                        <field name="ir_attachment"/>
                     </group>
                 </sheet>
             </form>
