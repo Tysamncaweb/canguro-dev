@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="shipping_report_form_view" model="ir.ui.view">
+        <field name="name">shipping.report.form.view</field>
+        <field name="model">stock.shipping.report</field>
+        <field name="arch" type="xml">
+            <form string="Shipping Report">
+                <header>
+                    <button string="Print Report" name="%(action_shipping_report)d" type="action" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group col="4">
+                        <field name="binary_name" invisible="1"/>
+                        <field name="name"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <!-- <field name="report" filename="binary_name"/> -->
+                        <field name="report"/> 
+                        <field name="ir_attachment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="shipping_report_tree_view" model="ir.ui.view">
+        <field name="name">shipping.report.form.view</field>
+        <field name="model">stock.shipping.report</field>
+        <field name="arch" type="xml">
+            <tree string="Shipping Report">
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_shipping_report" model="ir.actions.act_window">
+        <field name="name">Shipping Report</field>
+        <field name="res_model">stock.shipping.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="shipping_report_menu"
+        name="Shipping Report"
+        parent="stock.menu_warehouse_report"
+        action="action_shipping_report"
+        sequence="120"
+    />
+
+</odoo>
+
+
+

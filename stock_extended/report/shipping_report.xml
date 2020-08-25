@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="template_shipping_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!-- <t t-call="web.basic_layout" t-lang="es_VE"> -->
+                <t t-call="web.basic_layout">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <td class="text-center">
+                                            <!-- <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                             -->
+                                        </td>
+                                        <td class="text-center">
+                                            <h3 style="margin-top:40px;">Shipping Report</h3>
+                                        </td>
+                                        <td class="text-center">
+                                            <!-- <span t-field="o.name"/> -->
+                                        </td>
+                                    </tr>
+                                 </table>
+                            </div>
+                      </div> 
+                    </div>
+                    <div t-foreach="shipping_report(o)" t-as="t" class="page page_batch_payment">
+                       <table>
+                            <thead>
+                                <th><t t-esc="t['name']"/></th>
+                                <th>Date</th>
+                                <th>Adviser/Seller</th>
+                                <th>Customer</th>
+                                <th>weight</th>
+                                <th>Security Bag</th>
+                                <th>Insurance</th>
+                                <th>Destinity</th>
+                                <th>Parcel Service</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"></td>
+                                </tr>
+                            </tbody>
+                       </table>
+                    </div>
+                    <div class="footer">
+                        soy el footer
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+
+    <report 
+        id="action_shipping_report"
+        string="Shipping Report"
+        model="stock.shipping.report"
+        report_type="qweb-pdf"
+        name="stock_extended.template_shipping_report"
+        file="stock_extended.template_shipping_report"
+        menu="True"
+        paperformat="canguro_internal_transfer"
+    />
+<!-- attachment_use="True"
+        attachment="'ShippingReport'+'.pdf'" -->
+</odoo>

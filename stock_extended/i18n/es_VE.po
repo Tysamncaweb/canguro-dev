@@ -4,18 +4,90 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20200417\n"
+"Project-Id-Version: Odoo Server 13.0+e-20200629\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-04 19:40+0000\n"
-"PO-Revision-Date: 2020-08-04 15:49-0400\n"
+"POT-Creation-Date: 2020-08-20 20:04+0000\n"
+"PO-Revision-Date: 2020-08-20 16:35-0400\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
+"Language: es\n"
 "X-Generator: Poedit 2.0.6\n"
-"Last-Translator: \n"
-"Language: es_VE\n"
+
+#. module: stock_extended
+#: model:ir.actions.report,print_report_name:stock_extended.action_report_delivery
+msgid "'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+
+#. module: stock_extended
+#: model:ir.actions.report,print_report_name:stock_extended.action_report_internal_transfer
+msgid "'Transfer - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Adviser:"
+msgstr "Asesor:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "CI or VAT:"
+msgstr "CI o RIF:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "City:"
+msgstr "Ciudad:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Code"
+msgstr "Código"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Customer:"
+msgstr "Cliente:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: stock_extended
+#: model:ir.actions.report,name:stock_extended.action_report_delivery
+msgid "Delivery Slip"
+msgstr "Orden  de Pedido"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Description"
+msgstr "Descripción"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Destination Warehourse"
+msgstr "Almacén de Destino"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Dispatched by:"
+msgstr "Despachado por:"
+
+#. module: stock_extended
+#: code:addons/stock_extended/models/stock_picking.py:0
+#, python-format
+msgid "Field note cannot be contain more than 89 characters.!"
+msgstr "¡El campo nota no puede contener más de 89 caracteres!"
 
 #. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_stock_picking__insurance
@@ -23,9 +95,46 @@ msgid "Insurance"
 msgstr "Seguro"
 
 #. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Internal Transfer"
+msgstr "Transferencias Internas"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Method of payment:"
+msgstr "Método de pago:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Observation:"
+msgstr "Observación:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Origin:"
+msgstr "Origen:"
+
+#. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_stock_picking__parcel_service
 msgid "Parcel service"
-msgstr "Servicio de Paquetería"
+msgstr "Servicio de paquetería"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Phone:"
+msgstr "Teléfono"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Purchase Order"
+msgstr "Orden de Pedido"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Quantity"
+msgstr "Cantidad"
 
 #. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_stock_picking__security_bag
@@ -33,11 +142,32 @@ msgid "Security Bag"
 msgstr "Bolsa de Seguridad"
 
 #. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Total"
+msgstr "Total"
+
+#. module: stock_extended
+#: model:ir.actions.report,name:stock_extended.action_report_internal_transfer
 #: model:ir.model,name:stock_extended.model_stock_picking
 msgid "Transfer"
 msgstr "Transferir"
 
 #. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Unit Price"
+msgstr "Precio Unitario"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Warehouse of Origin"
+msgstr "Almacén de Origen"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "made by:"
+msgstr "Realizado por:"
+
+#. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_stock_picking__weight
 msgid "weight"
-msgstr "Peso"
+msgstr "peso"

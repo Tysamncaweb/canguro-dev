@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_document_inherit">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="es_VE">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-sm table-borderless" style="width:100%;">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                            
+                                        </td>
+                                        <td class="text-center">
+                                            <h3 style="margin-top:40px;">Purchase Order</h3>
+                                        </td>
+                                        <td class="text-center">
+                                            <h4 style="margin-top:40px;"><span t-field="o.name"/></h4>
+                                        </td>
+                                    </tr>
+                                 </table>
+                            </div>
+                      </div> 
+                    </div>
+                    <div class="page">
+                        <div class="row mt32">
+                            <div class="col-sm-12">
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <th>
+                                            Customer:
+                                        </th>
+                                        <td>
+                                            <span t-field="o.partner_id"/>
+                                        </td>
+                                        <th>
+                                           Date:
+                                        </th>
+                                        <td>
+                                            <span t-field="o.scheduled_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                           Address:
+                                        </th>
+                                        <td style="font-size:10pt;">
+                                            <span t-field="o.partner_id"
+                                            t-options='{"widget": "contact", "fields": ["address"], "no_maker": true}'
+                                            />
+                                        </td>
+                                        <th>
+                                           Origin:
+                                        </th>
+                                        <td>
+                                            <span t-field="o.origin"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                           Phone:
+                                        </th>
+                                        <td>
+                                            <span t-field="o.partner_id.phone"/>
+                                        </td>
+                                        <th>
+                                           Adviser:
+                                        </th>
+                                        <td style="text-align:left;">
+                                            <span t-field="o.user_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>CI or VAT:</th>
+                                        <td><span t-field="o.partner_id.vat"/></td>
+                                        <th>
+                                            City:
+                                        </th>
+                                        <td style="text-align:left;"><span t-field="o.partner_id.city"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mt32">
+                            <div class="col-sm-12">
+                                <table class="table table-sm" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.move_ids_without_package" t-as="move" style="page-break-inside: avoid;">
+                                            <td>
+                                                <span t-esc="move.product_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="move.product_uom_qty"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="move.product_id.lst_price"></span>
+                                            </td>
+                                            <td>
+                                                <span t-esc="word"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <table style="width:100%;font-size:12pt;">
+                            <tr><th>Method of payment:</th><td></td></tr>
+                            <tr><th>Dispatched by:</th><td><span t-field="o.user_id.name"/></td></tr>
+                            <tr><th>Observation:</th><td><span t-field="o.note"/></td></tr>
+                        </table>
+                    </div>
+                </t>
+            </t>    
+        </t>    
+    </template>
+
+
+    <!-- <template id="report_deliveryslip2">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="stock_extended.report_delivery_document_inherit" t-lang="o.partner_id.lang"/>
+        </t>
+    </template> -->
+
+
+
+
+
+<!-- Paper format -->
+<record id="paperformat_canguro_delivery" model="report.paperformat">
+    <field name="name">Delivery Slip</field>
+    <field name="default" eval="True"/>
+    <field name="format">custom</field>
+    <field name="page_height">297</field>
+    <field name="page_width">210</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">35</field>
+    <field name="margin_bottom">35</field>
+    <field name="margin_left">7</field>
+    <field name="margin_right">7</field>
+    <field name="header_line" eval="True"/>
+    <field name="header_spacing">30</field>
+    <field name="dpi">90</field>
+</record>
+
+    <!-- Hidden stock.action_report_delivery -->
+    <report 
+        id="stock.action_report_delivery"
+        string="Delivery Slip"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="stock.report_deliveryslip"
+        file="stock.report_deliveryslip"
+        print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
+        menu="False"
+    />
+
+    <!-- Replace Delivery Slip action report -->
+    <report 
+        id="action_report_delivery"
+        string="Delivery Slip"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="stock_extended.report_delivery_document_inherit"
+        file="stock_extended.report_delivery_document_inherit"
+        print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
+        menu="True"
+        paperformat="paperformat_canguro_delivery"
+    />
+
+
+</odoo>
