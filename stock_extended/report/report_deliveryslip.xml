@@ -154,7 +154,7 @@
 </record>
 
     <!-- Hidden stock.action_report_delivery -->
-    <report 
+    <!-- <report 
         id="stock.action_report_delivery"
         string="Delivery Slip"
         model="stock.picking"
@@ -163,12 +163,12 @@
         file="stock.report_deliveryslip"
         print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
         menu="False"
-    />
+    /> -->
 
     <!-- Replace Delivery Slip action report -->
     <report 
-        id="action_report_delivery"
-        string="Delivery Slip"
+        id="stock.action_report_delivery"
+        string="Orden de pedido"
         model="stock.picking"
         report_type="qweb-pdf"
         name="stock_extended.report_delivery_document_inherit"
