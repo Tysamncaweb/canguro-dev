@@ -14,12 +14,8 @@ class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
 
-    weight = fields.Float(string='weight')
     security_bag = fields.Boolean(string='Security Bag')
     insurance = fields.Boolean(string='Insurance')
-    parcel_service = fields.Char(string='Parcel service')
-    date_from = fields.Date(string="Date from")
-    date_to = fields.Date(string="Date to")
 
 
     @api.constrains('note')

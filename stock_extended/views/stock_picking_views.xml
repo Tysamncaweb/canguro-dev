@@ -9,10 +9,8 @@
 		<field name="arch" type="xml">
 			<xpath expr="//group[@name='other_infos']" position="after">
 				<group>
-					<field name="weight"/>
 					<field name="security_bag"/>
 					<field name="insurance"/>
-					<field name="parcel_service"/>
 				</group>
 			</xpath>
 		</field>
