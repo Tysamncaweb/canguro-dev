@@ -103,7 +103,7 @@
         name="stock_extended.internal_transfer_report"
         file="stock_extended.internal_transfer_report"
         print_report_name="'Transfer - %s - %s' % (object.partner_id.name or '', object.name)"
-        menu="True"
+        menu="False"
         paperformat="canguro_internal_transfer"
     />
 
