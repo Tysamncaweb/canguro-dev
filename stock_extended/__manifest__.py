@@ -7,6 +7,7 @@
         'author': 'Tysamnca',
         'depends': [
             'stock',
+            'sale',
             ],
         'data': [
             'security/ir.model.access.csv',
@@ -14,6 +15,7 @@
             'report/internal_transfer_report_view.xml',
             'report/shipping_report.xml',
             'views/stock_picking_views.xml',
+            'views/sale_order_views.xml',
             'views/shipping_report_views.xml',
             ],
         'installable': True,

@@ -114,8 +114,8 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <table style="width:100%;font-size:12pt;">
-                            <tr><th>Method of payment:</th><td></td></tr>
+                        <table class="table table-sm table-borderless" style="width:100%;font-size:12pt;">
+                            <tr><th>Method of payment: </th><td><span t-field="o.sale_id.payment_method_id.name"/></td></tr>
                             <tr><th>Dispatched by:</th><td><span t-field="o.user_id.name"/></td></tr>
                             <tr><th>Observation:</th><td><span t-field="o.note"/></td></tr>
                         </table>
