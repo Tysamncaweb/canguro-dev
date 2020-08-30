@@ -114,8 +114,8 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <table style="width:100%;font-size:12pt;">
-                            <tr><th>Method of payment:</th><td></td></tr>
+                        <table class="table table-sm table-borderless" style="width:100%;font-size:12pt;">
+                            <tr><th>Method of payment: </th><td><span t-field="o.sale_id.payment_method_id.name"/></td></tr>
                             <tr><th>Dispatched by:</th><td><span t-field="o.user_id.name"/></td></tr>
                             <tr><th>Observation:</th><td><span t-field="o.note"/></td></tr>
                         </table>
@@ -173,7 +173,7 @@
         report_type="qweb-pdf"
         name="stock_extended.report_delivery_document_inherit"
         file="stock_extended.report_delivery_document_inherit"
-        print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
+        print_report_name="'Orden de pedido - %s - %s' % (object.partner_id.name or '', object.name)"
         menu="False"
         paperformat="paperformat_canguro_delivery"
     />
