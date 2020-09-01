@@ -99,13 +99,13 @@
                                                 <span t-esc="move.product_id.name"/>
                                             </td>
                                             <td>
-                                                <span t-esc="move.product_uom_qty"/>
+                                                <span t-esc="move.quantity_done"/>
                                             </td>
                                             <td>
-                                                <span t-field="move.product_id.lst_price"></span>
+                                                <span t-esc="'%.2f'%(move.sale_line_id.price_unit)"/>
                                             </td>
                                             <td>
-                                                <span t-esc="word"/>
+                                                <span t-esc="'%.2f'%(move.sale_line_id.price_unit * move.quantity_done)"/>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -153,17 +153,7 @@
     <field name="dpi">90</field>
 </record>
 
-    <!-- Hidden stock.action_report_delivery -->
-    <!-- <report 
-        id="stock.action_report_delivery"
-        string="Delivery Slip"
-        model="stock.picking"
-        report_type="qweb-pdf"
-        name="stock.report_deliveryslip"
-        file="stock.report_deliveryslip"
-        print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"
-        menu="False"
-    /> -->
+
 
     <!-- Replace Delivery Slip action report -->
     <report 
