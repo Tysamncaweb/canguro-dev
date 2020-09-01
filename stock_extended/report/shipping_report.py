@@ -13,10 +13,11 @@ class StockShippingReport(models.AbstractModel):
     
 
     def _shipping_report(self, docids):
-        #records = self.env['stock.picking'].browse(docids)
-        #_logger.info("\n\n records %s \n\n", records)
+        records = self.env['stock.picking'].browse(docids)
+        _logger.info("\n\n\n\n records %s \n\n", records)
         return [{
-            'name': "Alejandro", 
+            'name': records, 
+            # 'name': "Alejandro", 
             'LastName': "Sanchez",
         }]
 
@@ -36,7 +37,7 @@ class StockShippingReport(models.AbstractModel):
 
         docargs = {
             'doc_ids': docids,
-            'doc_model': 'report.model',
+            'doc_model': report.model,
             'docs': self.env[report.model].browse(docids),
             'shipping_report': self._shipping_report,
         }
