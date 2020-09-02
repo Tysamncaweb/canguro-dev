@@ -15,16 +15,20 @@
 			</xpath>
 
 			<xpath expr="//button[@name='do_print_picking']" position="replace">
-				<!-- <button 
-					name="do_print_picking" 
-					string="PRINT" 
-					groups="stock.group_stock_user" 
-					type="object" 
-					attrs="{'invisible': ['|', 
-					('state', 'not in', ('assigned', 'partially_available')), 
-					('is_locked', '=', False)]}"/> -->
+			
 			</xpath>
 
+
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="after">
+				<button 
+					name="%(action_report_internal_transfer)d"
+					string="PRINT INTERNAL TRANSFERS" 
+					attrs="{'invisible': 
+					['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}" 
+					type="action" 
+					groups="base.group_user"/>
+			</xpath>
+			
 			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="replace">
 				<button 
 					name="do_print_picking"
@@ -34,6 +38,7 @@
 					type="object" 
 					groups="base.group_user"/>
 			</xpath>
+
 		</field>
 	</record>
 </odoo>

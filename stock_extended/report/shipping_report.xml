@@ -25,8 +25,8 @@
                             </div>
                       </div> 
                     </div>
-                    <div t-foreach="shipping_report(o)" t-as="t" class="page page_batch_payment">
-                       <table>
+                    <div t-foreach="shipping_report(o)" t-as="t">
+                       <table class="table table-sm">
                             <thead>
                                 <th><t t-esc="t['name']"/></th>
                                 <th>Date</th>
@@ -40,7 +40,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center"></td>
+                                    <td class="text-center"><span t-field="o.date_from"/></td>
                                 </tr>
                             </tbody>
                        </table>
@@ -58,7 +58,7 @@
     <report 
         id="action_shipping_report"
         string="Shipping Report"
-        model="stock.shipping.report"
+        model="report.stock_extended.template_shipping_report"
         report_type="qweb-pdf"
         name="stock_extended.template_shipping_report"
         file="stock_extended.template_shipping_report"

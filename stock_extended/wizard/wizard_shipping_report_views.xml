@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_shipping_report_wizard" model="ir.ui.view">
+        <field name="name">stock.shipping.report.wizard</field>
+        <field name="model">stock.shipping.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Shipping Report">
+                <sheet>
+                    <group name="date_range">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="shipping_report" string="PRINT REPORT" class="oe_highlight" type="object"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_shipping_report_wizard" model="ir.actions.act_window">
+        <field name="name">Shipping Report</field>
+        <field name="res_model">stock.shipping.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="stock_shipping_report_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="create_wizard_shipping_report_menu"
+        name="Shipping Report"
+        parent="stock.menu_warehouse_report"
+        action="action_shipping_report_wizard"
+        sequence="120"
+    />
+
+
+
+</odoo>

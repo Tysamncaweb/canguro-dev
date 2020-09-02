@@ -12,11 +12,12 @@ class StockShippingReport(models.AbstractModel):
     _name = 'report.stock_extended.template_shipping_report'
     
 
-    def _shipping_report(self, docids):
-        records = self.env['stock.picking'].browse(docids)
+    def _shipping_report(self, docids, date_from, date_to):
+        records = self.env['stock.picking'].search([('date', '>=', date_from)('date', '>=', date_to)])
         _logger.info("\n\n\n\n records %s \n\n", records)
+        _logger.info("\n\n LLEGO AL REPORTE \n\n")
         return [{
-            'name': records, 
+            'name': 'test', 
             # 'name': "Alejandro", 
             'LastName': "Sanchez",
         }]
