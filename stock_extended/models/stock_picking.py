@@ -33,25 +33,6 @@ class StockPicking(models.Model):
         return self.env.ref('stock.action_report_delivery').report_action(self)
 
 
-class StockShippingReport(models.Model):
-    _name = "stock.shipping.report"
-
-
-    name = fields.Char(string="Name")
-    date_from = fields.Date(string="Date from")
-    date_to = fields.Date(string="Date to")
-    report = fields.Binary(string="Shipping Report")
-    ir_attachment = fields.Many2one('ir.attachment', string="Attached")
-    binary_name = fields.Char(string="File name")
-
-    @api.onchange('binary_name')
-    def _put_name(self):
-        if self.binary_name:
-            self.name = self.binary_name
-        else:
-            self.name = "/"
-
-
 
 
 

@@ -10,13 +10,13 @@
             'sale',
             ],
         'data': [
-            'security/ir.model.access.csv',
+            # 'security/ir.model.access.csv',
             'report/report_deliveryslip.xml',
             'report/internal_transfer_report_view.xml',
             'report/shipping_report.xml',
             'views/stock_picking_views.xml',
             'views/sale_order_views.xml',
-            'views/shipping_report_views.xml',
+            'wizard/wizard_shipping_report_views.xml',
             ],
         'installable': True,
 }
