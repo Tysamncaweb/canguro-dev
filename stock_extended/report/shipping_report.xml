@@ -4,8 +4,7 @@
     <template id="template_shipping_report">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <!-- <t t-call="web.basic_layout" t-lang="es_VE"> -->
-                <t t-call="web.basic_layout">
+                    <t t-call="web.basic_layout">
                     <div class="header">
                         <div class="row">
                             <div class="col-12">
@@ -25,10 +24,9 @@
                             </div>
                       </div> 
                     </div>
-                    <div t-foreach="shipping_report(o)" t-as="t">
+                    <div class="page">
                        <table class="table table-sm">
                             <thead>
-                                <th><t t-esc="t['name']"/></th>
                                 <th>Date</th>
                                 <th>Adviser/Seller</th>
                                 <th>Customer</th>
@@ -39,8 +37,15 @@
                                 <th>Parcel Service</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center"><span t-field="o.date_from"/></td>
+                                 <tr t-foreach="shipping_report(o, data['form']['date_from'], data['form']['date_to'])" t-as="shipping">
+                                    <td class="text-center"><span t-esc="shipping['date']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['adviser']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['customer']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['weight']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['security_bag']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['insurance']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['destinity']"/></td>
+                                    <td lass="text-center"><span t-esc="shipping['parcel_service']"/></td>
                                 </tr>
                             </tbody>
                        </table>
@@ -58,11 +63,11 @@
     <report 
         id="action_shipping_report"
         string="Shipping Report"
-        model="report.stock_extended.template_shipping_report"
+        model="stock.picking"
         report_type="qweb-pdf"
         name="stock_extended.template_shipping_report"
         file="stock_extended.template_shipping_report"
-        menu="True"
+        menu="False"
         paperformat="canguro_internal_transfer"
     />
 <!-- attachment_use="True"

@@ -13,7 +13,7 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button name="shipping_report" string="PRINT REPORT" class="oe_highlight" type="object"/>
+                    <button name="shipping_report" string="PRINT REPORT" class="btn-primary" type="object"/>
                     <button string="Close" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>

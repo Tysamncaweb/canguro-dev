@@ -19,6 +19,8 @@ class StockShippingReportWizard(models.TransientModel):
     
 
     def shipping_report(self):
-        _logger.info("\n\n Aqui estoy\n\n\n")
-        _logger.info("\n\n self %s \n\n", self)
-        return self.env.ref('stock_extended.action_shipping_report').report_action(self)
+        data = {
+            'model': 'stock.shipping.report.wizard',
+            'form': self.read()[0]
+        }
+        return self.env.ref('stock_extended.action_shipping_report').report_action(self, data=data)
