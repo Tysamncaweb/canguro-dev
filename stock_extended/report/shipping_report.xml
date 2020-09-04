@@ -10,14 +10,13 @@
                             <div class="col-12">
                                 <table class="table table-sm table-borderless">
                                     <tr>
-                                        <td class="text-center">
-                                            <!-- <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                             -->
+                                        <td class="text-left">
+                                            <t t-if="o.company_id.logo">
+                                                <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                            
+                                            </t>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="text-left">
                                             <h3 style="margin-top:40px;">Shipping Report</h3>
-                                        </td>
-                                        <td class="text-center">
-                                            <!-- <span t-field="o.name"/> -->
                                         </td>
                                     </tr>
                                  </table>
@@ -27,38 +26,55 @@
                     <div class="page">
                        <table class="table table-sm">
                             <thead>
-                                <th>Date</th>
-                                <th>Adviser/Seller</th>
-                                <th>Customer</th>
-                                <th>weight</th>
-                                <th>Security Bag</th>
-                                <th>Insurance</th>
-                                <th>Destinity</th>
-                                <th>Parcel Service</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Adviser/Seller</th>
+                                <th class="text-center">Customer</th>
+                                <th class="text-center">weight</th>
+                                <th class="text-center">Security Bag</th>
+                                <th class="text-center">Insurance</th>
+                                <th class="text-center">Destinity</th>
+                                <th class="text-center">Parcel Service</th>
                             </thead>
                             <tbody>
                                  <tr t-foreach="shipping_report(o, data['form']['date_from'], data['form']['date_to'])" t-as="shipping">
                                     <td class="text-center"><span t-esc="shipping['date']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['adviser']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['customer']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['weight']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['security_bag']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['insurance']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['destinity']"/></td>
-                                    <td lass="text-center"><span t-esc="shipping['parcel_service']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['adviser']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['customer']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['weight']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['security_bag']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['insurance']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['destinity']"/></td>
+                                    <td class="text-center"><span t-esc="shipping['parcel_service']"/></td>
                                 </tr>
                             </tbody>
                        </table>
                     </div>
-                    <div class="footer">
+                    <!-- <div class="footer">
                         soy el footer
-                    </div>
+                    </div> -->
                 </t>
             </t>
         </t>
     </template>
 
+    <!-- Paper format -->
+    <record id="paperformat_canguro_shipping_report" model="report.paperformat">
+        <field name="name">Shippinp Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">28</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="True"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
 
+    
 
     <report 
         id="action_shipping_report"
@@ -68,7 +84,7 @@
         name="stock_extended.template_shipping_report"
         file="stock_extended.template_shipping_report"
         menu="False"
-        paperformat="canguro_internal_transfer"
+        paperformat="paperformat_canguro_shipping_report"
     />
 <!-- attachment_use="True"
         attachment="'ShippingReport'+'.pdf'" -->
