@@ -13,6 +13,7 @@ _logger = logging.getLogger('__name__')
 
 class StockShippingReportWizard(models.TransientModel):
     _name = "stock.shipping.report.wizard"
+    _description = "Date range wizard to query orders made"
 
 
     date_from = fields.Date(string="Date from")
@@ -21,7 +22,6 @@ class StockShippingReportWizard(models.TransientModel):
 
     def shipping_report(self):
         
-        _logger.info("\n\n type %s \n\n", type(self.date_from))
         if self.date_from and self.date_to:
             if self.date_from > self.date_to:
                 raise ValidationError(_("The start date cannot be greater than the end date"))
