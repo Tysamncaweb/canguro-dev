@@ -1,7 +1,7 @@
 
 # canguro-dev
 
-Proyecto para la empresa Canguro
+Proyecto para la empresa Canguro.
 
 
 
