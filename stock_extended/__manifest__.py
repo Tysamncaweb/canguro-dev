@@ -3,7 +3,7 @@
 
 {
         'name': 'Stock Picking Extended',
-        'version': '0.1',
+        'version': '1.0.1',
         'author': 'Tysamnca',
         'depends': [
             'stock',
