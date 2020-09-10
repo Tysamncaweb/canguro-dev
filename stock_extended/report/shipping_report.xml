@@ -36,7 +36,7 @@
                                 <th class="text-center">Parcel Service</th>
                             </thead>
                             <tbody>
-                                 <tr t-foreach="shipping_report(o, data['form']['date_from'], data['form']['date_to'])" t-as="shipping">
+                                 <tr t-foreach="shipping_report(o, data['form']['date_from'], data['form']['date_to'])" t-as="shipping" style="page-break-inside: avoid;">
                                     <td class="text-center"><span t-esc="shipping['date']"/></td>
                                     <td class="text-center"><span t-esc="shipping['adviser']"/></td>
                                     <td class="text-center"><span t-esc="shipping['customer']"/></td>

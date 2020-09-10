@@ -14,8 +14,8 @@
 				</group>
 			</xpath>
 
-			<xpath expr="//button[@name='do_print_picking']" position="replace">
-			
+			<xpath expr="//button[@name='do_print_picking']" position="attributes">
+				<attribute name="invisible">1</attribute>
 			</xpath>
 
 
@@ -25,17 +25,23 @@
 					string="PRINT INTERNAL TRANSFERS" 
 					attrs="{'invisible': 
 					['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}" 
-					type="action" 
+					type="action"
+					class="btn-primary"
 					groups="base.group_user"/>
 			</xpath>
+
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</xpath>			
 			
-			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="replace">
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="after">
 				<button 
 					name="do_print_picking"
-					string="PRINT" 
+					string="PRINT PURCHASE ORDER" 
 					attrs="{'invisible': 
 					['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}" 
-					type="object" 
+					type="object"
+					class="btn-primary"
 					groups="base.group_user"/>
 			</xpath>
 
