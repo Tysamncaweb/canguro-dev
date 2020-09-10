@@ -1,0 +1,294 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200629\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-10 15:34+0000\n"
+"PO-Revision-Date: 2020-09-10 11:41-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_VE\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: stock_extended
+#: model:ir.actions.report,print_report_name:stock_extended.action_report_internal_transfer
+msgid "'Transfer - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Adviser/Seller"
+msgstr "Asesor / Vendedor"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Adviser:"
+msgstr "Asesor:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "CI or VAT:"
+msgstr "CI o RIF:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "City:"
+msgstr "Ciudad:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.stock_shipping_report_wizard
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Code"
+msgstr "Código"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Customer:"
+msgstr "Cliente:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Date"
+msgstr "Fecha"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__date_from
+msgid "Date from"
+msgstr "Desde"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__date_to
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Description"
+msgstr "Descripción"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Destination Warehourse"
+msgstr "Almacén de Destino"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Destinity"
+msgstr "Destino"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Dispatched by:"
+msgstr "Despachado por:"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_report_stock_extended_template_shipping_report__display_name
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: stock_extended
+#: code:addons/stock_extended/models/stock_picking.py:0
+#, python-format
+msgid "Field note cannot be contain more than 89 characters.!"
+msgstr "¡El campo nota no puede contener más de 89 caracteres!"
+
+#. module: stock_extended
+#: code:addons/stock_extended/wizard/wizard_shipping_report.py:0
+#, python-format
+msgid "Fields date cannot be empty."
+msgstr "Los campos no pueden estar vacíos"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_report_stock_extended_template_shipping_report__id
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_picking__insurance
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Internal Transfer"
+msgstr "Transferencias Internas"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_report_stock_extended_template_shipping_report____last_update
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Method of payment:"
+msgstr "Método de pago:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Observation:"
+msgstr "Observación:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Origin:"
+msgstr "Origen:"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.view_picking_form
+msgid "PRINT INTERNAL TRANSFERS"
+msgstr "IMPRIMIR TRANSFERENCIAS INTERNAS"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.view_picking_form
+msgid "PRINT PURCHASE ORDER"
+msgstr "IMPRIMIR ORDEN DE PEDIDO"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.stock_shipping_report_wizard
+msgid "PRINT REPORT"
+msgstr "IMPRIMIR REPORTE"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Parcel Service"
+msgstr "Servicio de Paquetería"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_sale_order__payment_method_id
+msgid "Payment method"
+msgstr "Método de pago"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Phone:"
+msgstr "Teléfono"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Purchase Order"
+msgstr "Orden de Pedido"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: stock_extended
+#: model:ir.model,name:stock_extended.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: stock_extended
+#: model:ir.model.fields,field_description:stock_extended.field_stock_picking__security_bag
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Security Bag"
+msgstr "Bolsa de Seguridad"
+
+#. module: stock_extended
+#: model:ir.actions.act_window,name:stock_extended.action_shipping_report_wizard
+#: model:ir.actions.report,name:stock_extended.action_shipping_report
+#: model:ir.ui.menu,name:stock_extended.create_wizard_shipping_report_menu
+#: model_terms:ir.ui.view,arch_db:stock_extended.stock_shipping_report_wizard
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "Shipping Report"
+msgstr "Reporte de Envíos"
+
+#. module: stock_extended
+#: code:addons/stock_extended/wizard/wizard_shipping_report.py:0
+#, python-format
+msgid "The start date cannot be greater than the end date"
+msgstr "La fecha de inicio no puede ser más grande que la fecha final"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Total"
+msgstr ""
+
+#. module: stock_extended
+#: model:ir.actions.report,name:stock_extended.action_report_internal_transfer
+#: model:ir.model,name:stock_extended.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
+msgid "Unit Price"
+msgstr "Precio Unitario"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "Warehouse of Origin"
+msgstr "Almacén de Origen"
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
+msgid "made by:"
+msgstr "Realizado por:"
+
+#. module: stock_extended
+#: model:ir.model,name:stock_extended.model_report_stock_extended_template_shipping_report
+msgid "report.stock_extended.template_shipping_report"
+msgstr ""
+
+#. module: stock_extended
+#: model:ir.model,name:stock_extended.model_stock_shipping_report_wizard
+msgid "stock.shipping.report.wizard"
+msgstr ""
+
+#. module: stock_extended
+#: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
+msgid "weight"
+msgstr "Peso"

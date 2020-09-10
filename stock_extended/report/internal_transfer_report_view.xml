@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="internal_transfer_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="es_VE">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:120px; height:120px;"/>                            
+                                        </td>
+                                        <td class="text-center">
+                                            <h3 style="margin-top:40px;">Internal Transfer</h3>
+                                        </td>
+                                        <td class="text-center">
+                                            <h4 style="margin-top:40px;"><span t-field="o.name"/></h4>
+                                        </td>
+                                    </tr>
+                                 </table>
+                            </div>
+                      </div> 
+                    </div>
+                    <div class="page">
+                        <table class="table table-sm table-borderless text-center">
+                            <thead style="border:1px solid black;">
+                                <tr> 
+                                    <th style="border:1px solid black;">Code</th>
+                                    <th style="border:1px solid black;">Description</th>
+                                    <th style="border:1px solid black;">Warehouse of Origin</th>
+                                    <th style="border:1px solid black;">Destination Warehourse</th>
+                                    <th style="border:1px solid black;">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.move_line_ids_without_package" t-as="move" style="page-break-inside: avoid;">
+                                    <td>
+                                        <span t-esc="move.product_id.default_code"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="move.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.location_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.location_dest_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="move.qty_done"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="footer" style="border-top:1px solid black;">
+                        <table style="width:100%;font-size:12pt;">
+                            <tr><th>made by:</th><td><span t-field="o.user_id.name"/></td></tr>
+                            <tr><th>Observation:</th><td><span t-field="o.note"/></td></tr>
+                        </table>
+                    </div>
+                </t>
+            </t>    
+        </t>    
+    </template>
+
+
+    <!-- <template id="report_deliveryslip2">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="stock_extended.report_delivery_document_inherit" t-lang="o.partner_id.lang"/>
+        </t>
+    </template> -->
+
+
+
+
+
+    <!-- Paper format -->
+    <record id="canguro_internal_transfer" model="report.paperformat">
+        <field name="name">Internal Transer</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">35</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+    <report 
+        id="action_report_internal_transfer"
+        string="Transfer"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="stock_extended.internal_transfer_report"
+        file="stock_extended.internal_transfer_report"
+        print_report_name="'Transfer - %s - %s' % (object.partner_id.name or '', object.name)"
+        menu="False"
+        paperformat="canguro_internal_transfer"
+    />
+
+
+</odoo>

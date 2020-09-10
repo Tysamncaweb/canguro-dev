@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+	<record id="view_picking_form" model="ir.ui.view">
+		<field name="name">view.picking.form.inherit</field>
+		<field name="model">stock.picking</field>
+		<field name="inherit_id" ref="stock.view_picking_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//group[@name='other_infos']" position="after">
+				<group>
+					<field name="security_bag"/>
+					<field name="insurance"/>
+				</group>
+			</xpath>
+
+			<xpath expr="//button[@name='do_print_picking']" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</xpath>
+
+
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="after">
+				<button 
+					name="%(action_report_internal_transfer)d"
+					string="PRINT INTERNAL TRANSFERS" 
+					attrs="{'invisible': 
+					['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}" 
+					type="action"
+					class="btn-primary"
+					groups="base.group_user"/>
+			</xpath>
+
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</xpath>			
+			
+			<xpath expr="//button[@name='%(stock.action_report_delivery)d']" position="after">
+				<button 
+					name="do_print_picking"
+					string="PRINT PURCHASE ORDER" 
+					attrs="{'invisible': 
+					['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}" 
+					type="object"
+					class="btn-primary"
+					groups="base.group_user"/>
+			</xpath>
+
+		</field>
+	</record>
+</odoo>
