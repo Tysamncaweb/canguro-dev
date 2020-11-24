@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20200629\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-23 22:32+0000\n"
-"PO-Revision-Date: 2020-11-23 18:38-0400\n"
+"POT-Creation-Date: 2020-11-24 23:20+0000\n"
+"PO-Revision-Date: 2020-11-24 19:24-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: es_VE\n"
+"Language: es\n"
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: stock_extended
@@ -90,7 +90,7 @@ msgstr "Desde"
 #. module: stock_extended
 #: model:ir.model,name:stock_extended.model_stock_shipping_report_wizard
 msgid "Date range wizard to query orders made"
-msgstr ""
+msgstr "Asistente de rango de fechas para consultar pedidos realizados"
 
 #. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_stock_shipping_report_wizard__date_to
@@ -139,7 +139,7 @@ msgstr "¡El campo nota no puede contener más de 89 caracteres!"
 #: code:addons/stock_extended/wizard/wizard_shipping_report.py:0
 #, python-format
 msgid "Fields date cannot be empty."
-msgstr "Los campos no pueden estar vacíos"
+msgstr "Los campos no pueden estar vacíos."
 
 #. module: stock_extended
 #: model:ir.model.fields,field_description:stock_extended.field_report_stock_extended_template_shipping_report__id
@@ -218,7 +218,7 @@ msgstr "Método de pago"
 #. module: stock_extended
 #: model_terms:ir.ui.view,arch_db:stock_extended.report_delivery_document_inherit
 msgid "Phone:"
-msgstr "Teléfono"
+msgstr "Teléfono:"
 
 #. module: stock_extended
 #: model:ir.model,name:stock_extended.model_product_template
@@ -262,6 +262,12 @@ msgid "Shipping Report"
 msgstr "Reporte de Envíos"
 
 #. module: stock_extended
+#: code:addons/stock_extended/models/product_template.py:0
+#, python-format
+msgid "The default code cannot be blank"
+msgstr "La referencia interna no puede estar en blanco"
+
+#. module: stock_extended
 #: code:addons/stock_extended/wizard/wizard_shipping_report.py:0
 #, python-format
 msgid "The start date cannot be greater than the end date"
@@ -291,7 +297,7 @@ msgstr "Almacén de Origen"
 #. module: stock_extended
 #: model_terms:ir.ui.view,arch_db:stock_extended.internal_transfer_report
 msgid "made by:"
-msgstr "Realizado por:"
+msgstr "realizado por:"
 
 #. module: stock_extended
 #: model:ir.model,name:stock_extended.model_report_stock_extended_template_shipping_report
@@ -301,4 +307,4 @@ msgstr ""
 #. module: stock_extended
 #: model_terms:ir.ui.view,arch_db:stock_extended.template_shipping_report
 msgid "weight"
-msgstr "Peso"
+msgstr "peso"
