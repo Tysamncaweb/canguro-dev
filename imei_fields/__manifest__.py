@@ -1,0 +1,17 @@
+# -*- coding:utf-8 -*-
+# This app was developed by Tecnología y Servicios A.M.N C.A
+
+{
+    'name': 'IMEI Field',
+    'author': 'Tysamnca C.A',
+    'version': '0.1',
+    'depends': [
+        'purchase',
+        'sale',
+        'stock',
+        'account',
+    ],
+    'data': [],
+    'installable': True,
+
+}
