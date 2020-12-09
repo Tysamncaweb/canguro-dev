@@ -6,11 +6,7 @@ from odoo import fields, api, models, _
 
 
 class Product(models.Model):
-    _name = 'product'
+    _inherit = 'product.template'
 
-    imei = fields.Char(string='IMEI')
-
-
-
-
+    tracking = fields.Selection(selection_add=[('imei', 'IMEI')])
 
