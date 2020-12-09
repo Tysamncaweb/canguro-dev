@@ -7,6 +7,7 @@
     'version': '0.1',
     'depends': [
         'purchase',
+        'product',
         'sale',
         'stock',
         'account',
