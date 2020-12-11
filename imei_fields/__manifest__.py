@@ -12,7 +12,9 @@
         'stock',
         'account',
     ],
-    'data': [],
+    'data': [
+        'views/product_view.xml',
+    ],
     'installable': True,
 
 }
