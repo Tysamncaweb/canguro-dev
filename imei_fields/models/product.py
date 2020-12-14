@@ -17,7 +17,6 @@ class Product(models.Model):
 
 
 
-
 class ProductProduct(models.Model):
     _inherit = 'product.product'
 
@@ -32,6 +31,7 @@ class ProductProduct(models.Model):
                     'warning': {
                         'title': _('Warning!'),
                         'message': _("You have products in stock that have no lot number.  You can assign serial numbers or IMEI code by doing an inventory. ")}}
+
 
 
 class ProductionLot(models.Model):
