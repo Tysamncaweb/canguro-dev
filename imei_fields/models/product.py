@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import logging
+
 from odoo import fields, api, models, _
 
-
+_logger = logging.getLogger('__name__')
 
 
 class Product(models.Model):
@@ -13,6 +15,14 @@ class Product(models.Model):
     @api.onchange('tracking')
     def onchange_tracking(self):
         return self.mapped('product_variant_ids').onchange_tracking()
+
+
+    def action_open_product_imei(self):
+        self.ensure_one()
+        action = self.env.ref('imei_fields.action_product_imei_view').read()[0]
+        #action['domain'] = [('product_id', '=', self.id)]
+        # action['context'] = {'default_product_id': self.id}
+        return action
 
 
 
@@ -34,12 +44,26 @@ class ProductProduct(models.Model):
 
 
 
-class ProductionLot(models.Model):
-    _inherit = 'stock.production.lot'
-    _description = 'Lot/Serial/IMEI'
+#class ProductionLot(models.Model):
+#    _inherit = 'stock.production.lot'
+#    _description = 'Lot/Serial/IMEI'
+#
+#
+#    name = fields.Char(
+#        string='Lot/Serial Number/IMEI', default=lambda self: self.env['ir.sequence'].next_by_code('stock.lot.serial'),
+#        required=True, help="Unique Lot/Serial Number/IMEI")
+#    #imei = fields.Boolean(string="IMEI", help="True if the code is an IMEI")
 
 
-    name = fields.Char(
-        string='Lot/Serial Number/IMEI', default=lambda self: self.env['ir.sequence'].next_by_code('stock.lot.serial'),
-        required=True, help="Unique Lot/Serial Number/IMEI")
-    IMEI = fields.Boolean(string="IMEI", help="True if the code is an IMEI")
+
+class ImeiNumber(models.Model):
+    _name = 'imei.number'
+    _description = 'IMEI'
+
+
+    name = fields.Char(string='IMEI', help='IMEI code')
+    active = fields.Boolean(string='Active')
+    sold = fields.Boolean(string='Active', readonly=True, store=True)
+    product_id = fields.Many2one('product.product' ,string='Products')
+    ref = fields.Char(string='Code')
+    company_id = fields.Many2one(string='Company')

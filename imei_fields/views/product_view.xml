@@ -9,11 +9,19 @@
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_open_product_lot']" position="replace">
                 <button 
-                    string="Lot/Serial Number/IMEI" type="object"
+                    string="Lot/Serial Number" type="object"
                     name="action_open_product_lot"
-                    attrs="{'invisible': [('tracking', '=', 'none')]}"
                     class="oe_stat_button"
                     icon="fa-bars"
+                    attrs="{'invisible': ['|',('tracking','=','imei'), ('tracking','=','none')]}"
+                    groups="stock.group_production_lot"
+                />
+                <button 
+                    string="IMEI Number" type="object"
+                    name="action_open_product_imei"
+                    class="oe_stat_button"
+                    icon="fa-bars"
+                    attrs="{'invisible': [('tracking','!=','imei')]}"
                     groups="stock.group_production_lot"
                 />
             </xpath>
