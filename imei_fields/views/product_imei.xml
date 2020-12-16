@@ -7,9 +7,13 @@
         <field name="arch" type="xml">
             <form string="IMEI Form">
                 <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. 010928/00/389023/3"/>
+                        </h1>
+                    </div>
                     <group col="4">
-                        <field name="name"/>
-                        <field name="active"/>
                         <field name="sold"/>
                         <field name="product_id"/>
                         <field name="ref"/>
@@ -44,7 +48,7 @@
                           (0, 0, {'view_mode': 'tree', 'view_id': ref('open_product_imei_view_tree')}),
                           (0, 0, {'view_mode': 'form', 'view_id': ref('open_product_imei_view_form')})]"/>
         <!-- <field name="search_view_id" ref="search_product_lot_filter"/> -->
-        <!-- <field name="context">{'search_default_group_by_product': 1}</field> -->
+        <field name="context">{'search_default_group_by_product': 1}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
                 IMEI number

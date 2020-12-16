@@ -69,12 +69,12 @@
         </field>
     </record>
 
-    <menuitem 
+    <!-- <menuitem 
         action="stock.action_production_lot_form"
         name="Lotes/Números de serie/IMEI"
         id="stock.menu_action_production_lot_form"
         parent="stock.menu_stock_inventory_control" 
         groups="stock.group_production_lot"
-        sequence="101"/>
+        sequence="101"/> -->
 
 </odoo>

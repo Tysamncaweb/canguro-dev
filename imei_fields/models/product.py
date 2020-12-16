@@ -20,8 +20,8 @@ class Product(models.Model):
     def action_open_product_imei(self):
         self.ensure_one()
         action = self.env.ref('imei_fields.action_product_imei_view').read()[0]
-        #action['domain'] = [('product_id', '=', self.id)]
-        # action['context'] = {'default_product_id': self.id}
+        action['domain'] = [('product_id', '=', self.id)]
+        action['context'] = {'default_product_id': self.id}
         return action
 
 
@@ -46,7 +46,7 @@ class ProductProduct(models.Model):
 
 #class ProductionLot(models.Model):
 #    _inherit = 'stock.production.lot'
-#    _description = 'Lot/Serial/IMEI'
+#    _description = 'Lot/Serial/IMEI'   
 #
 #
 #    name = fields.Char(
@@ -62,8 +62,8 @@ class ImeiNumber(models.Model):
 
 
     name = fields.Char(string='IMEI', help='IMEI code')
-    active = fields.Boolean(string='Active')
-    sold = fields.Boolean(string='Active', readonly=True, store=True)
+    active = fields.Boolean(string='Active', default=True)
+    sold = fields.Boolean(string='Sold', readonly=True, store=True)
     product_id = fields.Many2one('product.product' ,string='Products')
     ref = fields.Char(string='Code')
     company_id = fields.Many2one(string='Company')
