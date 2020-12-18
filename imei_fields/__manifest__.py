@@ -13,9 +13,9 @@
         'account',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'views/product_view.xml',
-        'views/product_imei.xml',
+        'views/production_lote.xml',
+        #'views/product_imei.xml',
     ],
     'installable': True,
 

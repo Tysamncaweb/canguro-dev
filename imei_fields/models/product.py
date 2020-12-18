@@ -10,7 +10,15 @@ _logger = logging.getLogger('__name__')
 class Product(models.Model):
     _inherit = 'product.template'
 
-    tracking = fields.Selection(selection_add=[('imei', 'IMEI')])
+
+    tracking = fields.Selection([
+        ('serial', 'By Unique Serial Number/ IMEI Number'),
+        ('lot', 'By Lots'),
+        ('none', 'No Tracking')], 
+        string="Tracking", 
+        help="Ensure the traceability of a storable product in your warehouse.", 
+        default='none', required=True)
+
 
     @api.onchange('tracking')
     def onchange_tracking(self):
@@ -44,26 +52,17 @@ class ProductProduct(models.Model):
 
 
 
-#class ProductionLot(models.Model):
-#    _inherit = 'stock.production.lot'
-#    _description = 'Lot/Serial/IMEI'   
+
+
+
+#class ImeiNumber(models.Model):
+#    _name = 'imei.number'
+#    _description = 'IMEI'
 #
 #
-#    name = fields.Char(
-#        string='Lot/Serial Number/IMEI', default=lambda self: self.env['ir.sequence'].next_by_code('stock.lot.serial'),
-#        required=True, help="Unique Lot/Serial Number/IMEI")
-#    #imei = fields.Boolean(string="IMEI", help="True if the code is an IMEI")
-
-
-
-class ImeiNumber(models.Model):
-    _name = 'imei.number'
-    _description = 'IMEI'
-
-
-    name = fields.Char(string='IMEI', help='IMEI code')
-    active = fields.Boolean(string='Active', default=True)
-    sold = fields.Boolean(string='Sold', readonly=True, store=True)
-    product_id = fields.Many2one('product.product' ,string='Products')
-    ref = fields.Char(string='Code')
-    company_id = fields.Many2one(string='Company')
+#    name = fields.Char(string='IMEI', help='IMEI code')
+#    active = fields.Boolean(string='Active', default=True)
+#    sold = fields.Boolean(string='Sold', readonly=True, store=True)
+#    product_id = fields.Many2one('product.product' ,string='Products')
+#    ref = fields.Char(string='Code')
+#    company_id = fields.Many2one(string='Company')

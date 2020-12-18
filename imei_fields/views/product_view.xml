@@ -8,20 +8,20 @@
         <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_open_product_lot']" position="replace">
-                <button 
+                <!-- <button 
                     string="Lot/Serial Number" type="object"
                     name="action_open_product_lot"
                     class="oe_stat_button"
                     icon="fa-bars"
                     attrs="{'invisible': ['|',('tracking','=','imei'), ('tracking','=','none')]}"
                     groups="stock.group_production_lot"
-                />
+                /> -->
                 <button 
-                    string="IMEI Number" type="object"
-                    name="action_open_product_imei"
+                    string="Lot/Serial Number/IMEI Number" type="object"
+                    name="action_open_product_lot"
                     class="oe_stat_button"
                     icon="fa-bars"
-                    attrs="{'invisible': [('tracking','!=','imei')]}"
+                    attrs="{'invisible': [('tracking', '=', 'none')]}" 
                     groups="stock.group_production_lot"
                 />
             </xpath>
@@ -69,12 +69,35 @@
         </field>
     </record>
 
-    <!-- <menuitem 
+    <menuitem 
         action="stock.action_production_lot_form"
         name="Lotes/Números de serie/IMEI"
         id="stock.menu_action_production_lot_form"
         parent="stock.menu_stock_inventory_control" 
         groups="stock.group_production_lot"
-        sequence="101"/> -->
+        sequence="101"/>
+
+
+
+    <record id="stock.view_stock_move_nosuggest_operations" model="ir.ui.view">
+        <field name="name">stock.move.operations.nosuggest.form</field>
+        <field name="model">stock.move</field>
+        <field name="priority">1000</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="stock.view_stock_move_operations"/>
+        <field name="arch" type="xml">
+            <field name="move_line_ids" position="replace">
+                <field name="move_line_nosuggest_ids" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}" context="{'tree_view_ref': 'stock.view_stock_move_line_operation_tree','default_picking_id': picking_id, 'default_move_id': id, 'default_product_id': product_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id}">
+                    <tree string="Move line nosuggest ids">
+                        <field name="location_dest_id"/>
+                        <field name="lot_id" string="Lots/Serie Number/IMEI"/>
+                        <field name="result_package_id"/>
+                        <field name="qty_done"/>
+                        <field name="product_uom_id"/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
 
 </odoo>
