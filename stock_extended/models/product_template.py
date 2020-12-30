@@ -10,7 +10,7 @@ from odoo.exceptions import ValidationError
 class ProductTemplate(models.Model):
     _inherit='product.template'
 
-    @api.constrains('default_code')
+    #@api.constrains('default_code')
     def unique_code(self):
         if not self.default_code:
             raise ValidationError(_("The default code cannot be blank"))

@@ -27,9 +27,7 @@ class StockPicking(models.Model):
 
 
     def do_print_picking(self):
-        _logger.info("\n\n Aqui estoy\n\n\n")
         self.write({'printed': True})
-        _logger.info("\n\n self %s \n\n", self)
         return self.env.ref('stock.action_report_delivery').report_action(self)
 
 
