@@ -4,7 +4,7 @@
 {
         'name': 'Account Invoices',
         'version': '0.1',
-        'author': 'Tysamnca',
+        'author': 'Tysamnca C.A',
         'category': 'Accounting/Accounting',
         'depends': ['account'],
         'data': [

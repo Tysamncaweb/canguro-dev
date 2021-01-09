@@ -4,7 +4,7 @@
 {
         'name': 'Stock Picking Extended',
         'version': '1.0.1',
-        'author': 'Tysamnca',
+        'author': 'Tysamnca C.A',
         'depends': [
             'stock',
             'sale',
